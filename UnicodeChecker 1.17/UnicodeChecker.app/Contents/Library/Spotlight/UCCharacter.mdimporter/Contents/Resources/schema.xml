@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema version="1.0" xmlns="http://www.apple.com/metadata"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://www.apple.com/metadata file:///System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Resources/MetadataSchema.xsd">
+    <attributes>
+        <attribute name="net_earthlingsoft_UnicodeChecker_UnicodeName" type="CFString"/>
+        <attribute name="net_earthlingsoft_UnicodeChecker_UnihanDefinition" type="CFString"/>
+        <attribute name="net_earthlingsoft_UnicodeChecker_Glyph" type="CFString"/>
+    </attributes>
+
+    <types>
+        <type name="net.earthlingsoft.unicodechecker.uccharacter">
+            <allattrs>
+               kMDItemDisplayName
+               net_earthlingsoft_UnicodeChecker_UnicodeName
+               net_earthlingsoft_UnicodeChecker_UnihanDefinition
+               net_earthlingsoft_UnicodeChecker_Glyph
+            </allattrs>
+            <displayattrs>
+               net_earthlingsoft_UnicodeChecker_UnicodeName
+               net_earthlingsoft_UnicodeChecker_UnihanDefinition
+               net_earthlingsoft_UnicodeChecker_Glyph
+            </displayattrs>
+        </type>
+    </types>
+</schema>
+

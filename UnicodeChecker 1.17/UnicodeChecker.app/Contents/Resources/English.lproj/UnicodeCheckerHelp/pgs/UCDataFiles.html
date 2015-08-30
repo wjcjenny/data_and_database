@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Unicode Data Files</title>
+<meta name="description" content="Unicode Data Files" />
+</head>
+<body>
+<div id="banner">
+<a name="UCDataFiles"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Unicode Data Files</h1>
+</div>
+<p>
+The Unicode data files used in this release of UnicodeChecker are taken from the <a href="http://www.unicode.org/Public/UNIDATA/">Unicode Character Database directory</a>   at the time of the release.
+</p><p>
+If the Unicode Consortium releases new versions of this file, new versions of UnicodeChecker should become available. However, you can override the files used by UnicodeChecker by installing Unicode data files in any <tt>Library/Application Support/UnicodeChecker/Unicode Data</tt> folder (or alternatively by replacing the files inside the folder “Unicode Data” within the application bundle).
+</p><p>
+Some of the <a  href="help:anchor='UCUtilities' bookID='UnicodeChecker Help'">Utilities</a> (namely Normalization and IDN) utilize Unicode Normalization Forms. The conformance of UnicodeChecker’s normalization with the Unicode Standard at the time of this release has been verified. If you replace the data files in UnicodeChecker it is a good idea to run the normalization test from the “File” menu. You need to download the appropriate “NormalizationTest.txt” file from unicode.org in order to run the test. Note that this test may take long – depending on your configuration a few minutes – and shows progress indication only in the “Console” application.
+</p><p>
+The XHTML Entity Names are taken from the <a href="http://www.w3.org/TR/xhtml1/">XHTML 1.0 Specification</a>. They are stored in three separate files inside the application bundle which can be edited or replaced if needed.
+If there is no named entity defined for the current code point, the “XHTML” field displays either the character itself (if it is valid in XHTML) or as a numeric character reference (either hexadecimal or decimal depending on the settings in the preferences).
+</p><p>
+Note that you can always construct a numeric character reference yourself using <a href="http://www.w3.org/TR/html4/charset.html#h-5.3.1">the usual format from the HTML 4.01 Specification</a>:<br />
+&amp;#D;   –   where D is the decimal character number<br />
+&amp;#xH;  or  &amp;#XH;   –   where H is the hexadecimal character number.
+</p><p id="agl">
+<a name="UCDataFilesAGL"></a>
+<a href="http://www.adobe.com/devnet/opentype/archives/glyphlist.txt">AGL (Adobe Glyph List)</a>, <a href="http://www.adobe.com/devnet/opentype/archives/aglfn.txt">AGLFN (Adobe Glyph List For New Fonts)</a> and <a href="http://www.adobe.com/devnet/opentype/archives/zapfdingbats.txt">Zapf Dingbats</a> names are taken from those files. 
+For more information on Adobe Glyph names you may want to read the article <a href="http://www.adobe.com/devnet/opentype/archives/glyph.html">Unicode and Glyph Names</a> on the Adobe website.
+</p>
+
+</div>
+</body>
+</html>

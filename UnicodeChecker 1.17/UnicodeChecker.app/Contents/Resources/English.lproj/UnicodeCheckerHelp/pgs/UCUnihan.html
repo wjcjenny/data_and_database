@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Unihan Data</title>
+<meta name="description" content="UnicodeChecker Unihan Data" />
+</head>
+<body>
+<div id="banner">
+<a name="UCUnihan"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Unihan Data</h1>
+</div>
+<p>
+The <a href="http://www.unicode.org/charts/unihan.html">Unihan</a> database contains additional information about CJK Unified Ideographs. 
+UnicodeChecker allows you to see Unihan information for any codepoint. As the file size of the Unihan data is several megabytes it is not included but UnicodeChecker can download and install the file for you.
+</p>
+<p>
+Once the Unihan data is installed, the  “Unihan” tab will show a table with unihan tags and values for the currently selected codepoint.  It includes a filter field for Unihan keys to highlight the tags you are interested in. You may enter multiple filter strings separated by spaces which results in an OR filtering so you can filter multiple keys at once.
+</p>
+<p class="screenshot">
+<img src="../gfx/Unihan.png" alt="Unihan tab in UnicodeChecker's main window" />
+</p>
+<h2>Manually installing Unhian</h2>
+<p>
+When UnicodeChecker downloads the “Unihan.zip” file it will use the file from <a href="http://www.unicode.org/Public/">www.unicode.org/Public/</a> which matches the Unicode version shipped with UnicodeChecker. The file will be downloaded and unpacked in the current user’s <tt>~/Library/Application Support/UnicodeChecker/Unicode Data/</tt>. UnicodeChecker will also verify the downloaded Unihan data for corruption.
+</p>
+<p>
+If you need a different version of the Unihan database you need to manually download it from <a href="http://www.unicode.org/Public/UNIDATA/">www.unicode.org/Public/</a>. You can also make the Unihan data available to all UnicodeChecker users on your Mac by moving the file to the Library folder located at the root level of your hard disk: <tt>/Library/Application Support/UnicodeChecker/Unicode Data/</tt> (see also <a href="help:anchor='UCDataFiles' bookID='UnicodeChecker Help'">Unicode Data Files</a>).
+</p>
+</div>
+</body>
+</html>

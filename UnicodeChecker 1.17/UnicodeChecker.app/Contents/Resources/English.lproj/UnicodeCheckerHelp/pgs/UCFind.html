@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Finding Codepoints</title>
+<meta name="description" content="UnicodeChecker Finding Codepints" />
+</head>
+<body>
+<div id="banner">
+<a name="UCFind"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Finding Codepoints</h1>
+</div>
+<p>
+UnicodeChecker offers two find panels for searching codepoints. Use the simple find panel for quickly searching codepoints by name. The advanced find window enables a more fine grained search by allowing to specify search criteria for individual Unicode properties.
+</p>
+
+<h2>Simple Find</h2>
+<p>
+The simple find panel allows you to quickly search for specific codepoints by their name or Unihan description (if the <a href="help:anchor='UCUnihan' bookID='UnicodeChecker Help'">Unihan file is installed</a>).
+</p>
+<p>
+You can access the simple find panel from the &ldquo;Find Character&hellip;&rdquo; command in the &ldquo;Edit&rdquo; menu or by clicking on the magnifying glass at the right side of UnicodeChecker&rsquo;s main window.
+</p>
+<p class="screenshot">
+<img src="../gfx/Find_Unihan.png" alt="Find Codepoint Panel searching for Unihan description" />
+</p>
+<p>
+The simple find panel performs the search using the following rules:
+</p>
+<ul>
+<li>Words separated with spaces must all occur in no specific order in the character name (AND search).</li>
+<li>Words enclosed in double quotes (") must occur exactly as entered.</li>
+<li>Words prefixed with a minus (-) must not occur in the character name.</li>
+</ul>
+<p class="screenshot">
+<img src="../gfx/Find_Narrow.png" alt="Narrowing the search results using minus and quotes" />
+</p>
+
+<h2>Advanced Find</h2>
+<p>
+Using the advanced find window you can search all codepoints by specifying detailed criteria on individual Unicode properties, such as Block, Script, General Category, Age, Unihan properties, etc.
+</p>
+<p>
+You can access the advanced find panel from the &ldquo;Advanced Find&hellip;&rdquo; command in the &ldquo;Edit&rdquo; menu or by holding down the Option (&#9095;) key and clicking on the magnifying glass at the right side of UnicodeChecker&rsquo;s main window.
+</p>
+<p class="screenshot">
+<img src="../gfx/Advanced%20Find.png" alt="Advanced Find Window searching for Devanagari numerals" />
+</p>
+<p>
+When searching in text based properties using the advanced find panel, your query method can be one of &ldquo;contains&rdquo;, &ldquo;begins with&rdquo;, &ldquo;ends width&rdquo;, &ldquo;Edit&rdquo;, &ldquo;is like&rdquo;, and &ldquo;matches&rdquo;. The first three should be self-explanatory, the other two allow pattern based searches:
+</p>
+<ul>
+<li>&ldquo;is like&rdquo; allows simple wildcard patterns where a &ldquo;?&rdquo; matches any character and a &ldquo;*&rdquo; matches zero or more arbitrary characters.</li>
+<li>&ldquo;matches&rdquo; allows regular expression patterns.</li>
+</ul>
+<p>
+In order to construct complex searches with boolean AND, OR, and NOT operations, hold down the Option (&#9095;) key when clicking on a &ldquo;+&rdquo; button.
+</p>
+</div>
+</body>
+</html>

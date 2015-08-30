@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Internationalized Domain Names in Applications (IDNA)</title>
+<meta name="description" content="Internationalized Domain Names in Applications (IDNA)" />
+</head>
+<body>
+<div id="banner">
+<a name="UCIDNA"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Internationalized Domain Names in Applications (IDNA)</h1>
+</div>
+<p>
+UnicodeChecker implements the Internationalized Domain Names in Applications (IDNA) protocol in both, the 2008 and the (now obsolete) 2003 version. IDNA conversions are available as a <a href="help:anchor='UCUtilities' bookID='UnicodeChecker Help'">UnicodeChecker Utility</a> and to other applications from <a href="help:anchor='UCAppleScript' bookID='UnicodeChecker Help'">AppleScript</a> or as a <a href="help:anchor='UCServices' bookID='UnicodeChecker Help'">Service</a>. Both, the utility and AppleScript let you choose between the 2008 and 2003 protocol versions, while the Service always uses the later (2008) protocol.
+</p>
+<h2>IDNA 2008</h2>
+<p>
+The 2008 protocol is specified in RFCs <a href="http://www.ietf.org/rfc/rfc5890.txt">5890</a>, <a href="http://www.ietf.org/rfc/rfc5891.txt">5891</a>, <a href="http://www.ietf.org/rfc/rfc5892.txt">5892</a>, <a href="http://www.ietf.org/rfc/rfc5893.txt">5893</a>, and <a href="http://www.ietf.org/rfc/rfc5894.txt">5894</a>.
+</p>
+<p>
+This version specifies conversions between “A-Labels” (an ASCII-Compatible-Encoding of an IDNA-valid string) and “U-Labels” (an IDNA-valid string of Unicode characters). The conversion in either direction may fail. In this case the UnicodeChecker IDNA utility displays the reason for the failure, the respective AppleScript command returns the <em>missing value</em> constant.
+</p>
+<p>
+UnicodeChecker implements the stricter “Registration Protocol” of <a href="http://www.ietf.org/rfc/rfc5891.txt">RFC 5891</a>, which amongst other things restricts input strings to lowercase (more specifically, it disallows “unstable” characters as defined in Section 2.2 of <a href="http://www.ietf.org/rfc/rfc5892.txt">RFC 5892</a>). UnicodeChecker does not perform any mappings on the input strings, so you must convert the input string to lowercase yourself. (IDNA 2003 specified a normative input mapping that would include a conversion to lowercase.)
+</p>
+<p>
+When converting to ASCII representation (U-Label &rarr; A-Label), UnicodeChecker leaves LDH-Labels unchanged. LDH-Labels represent the set of “traditional” labels, i.e. they may only contain letters, digits and hyphens (hence LDH), may not start or end with a hyphen, and the maximum label length is 63 characters. When converting to Unicode representation (A-Label &rarr; U-Label), UnicodeChecker leaves NR-LDH-Labels unchanged. For a label to qualify as NR-LDH-Labels (non-reserved), it may not contain hyphens at both, the third and fourth character position.
+</p>
+<p>
+The requirements for labels (i.e. the parts between the dots of a domain name) containing characters from right-to-left (RTL) scripts as specified in Section 4.2.3.4. (Labels Containing Characters Written Right to Left) of <a href="http://www.ietf.org/rfc/rfc5891.txt">RFC 5891</a> are tested individually for each label containing RTL characters. While <a href="http://www.ietf.org/rfc/rfc5893.txt">RFC 5893</a> also sets up joint requirements for labels of domain names with at least one RTL label, these are currently not tested by UnicodeChecker.
+</p>
+<p>
+See RFC <a href="http://www.ietf.org/rfc/rfc5890.txt">5890</a> for a definition of the terms A-Label, U-Label, LDH-Label, NR-LDH-Label.
+</p>
+<h2>IDNA 2003</h2>
+<p>
+The 2003 protocol is specified in RFC <a href="http://www.ietf.org/rfc/rfc3490.txt">3490</a> and has been obsoleted by IDNA 2008.
+</p>
+<p>
+This version specifies two conversions: “ToUnicode”, which always succeeds, and “ToASCII”, which may fail for some input strings.  The IDNA utility informs you whether the conversion succeeded or not. If the conversion fails the exact reason for the failure is shown. The AppleScript command returns the <em>missing value</em> constant on failure.
+</p>
+</div>
+</body>
+</html>

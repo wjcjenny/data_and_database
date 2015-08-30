@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>AppleScript</title>
+<meta name="description" content="UnicodeChecker AppleScript" />
+</head>
+<body>
+<div id="banner">
+<a name="UCAppleScript"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>AppleScript</h1>
+</div>
+<p>
+A number of UnicodeChecker's features are available for use in your AppleScripts:
+</p>
+<ul>
+<li>You can get references for individual code points and query several Unicode properties including Unihan tag/value pairs.</li>
+<li>You can ask UnicodeChecker to convert non-ASCII code points in strings to their HTML entity representation and the other way round. This may be useful if you want to generate HTML pages via AppleScript using data from sources like the MacOS Address Book or you want to extract data from HTML pages.
+</li><li>
+You can have UnicodeChecker escape or unescape string sequences (see the <a href="help:anchor='UCEscapes' bookID='UnicodeChecker Help'">section on Escaping</a> for more information).
+</li><li>
+You can convert strings to or from IDNA using the 2003 or the 2008 IDNA protocol. If an IDNA conversion fails, the AppleScript constant <em>missing value</em> is returned.
+</li><li>
+You can have UnicodeChecker display code point information in its main window.
+</li>
+</ul>
+<p>
+The documentation for scripting support can be viewed from Script Editor’s “Open Dictionary…” menu command.
+</p>
+<p>
+To get an idea of what you can do, have a look at the <a href="help:runscript='UnicodeCheckerHelp/shrd/Open Sample Script.scpt' string='dummy'">AppleScript sample</a>.
+</p>
+
+<h2>Additional Notes</h2>
+<p>
+Some additional information which can not be found in UnicodeChecker’s AppleScript dictionary.
+</p>
+<h3>Performance and Memory Usage</h3>
+<p>
+Currently, Unicode contains 1114112 code points. Querying the complete set of code points for specific properties (e.g. <em>code points where unicode name contains "latin"</em>) may therefore be time and memory consuming. When waiting for a command to return, AppleScript times out after a specific amount of time. If your script times out you can use AppleScript’s <em>with timeout</em> statement to influence how long AppleScript waits. More information on the <em>with timeout</em> statement can be found in the AppleScript documentation <a href="http://developer.apple.com/documentation/AppleScript/Conceptual/AppleScriptLangGuide/AppleScript.c9.html">here</a> and <a href="http://developer.apple.com/documentation/AppleScript/Conceptual/AppleScriptLangGuide/AppleScript.ca.html">here</a>. However, when performing lengthy commands UnicodeChecker also uses quite a lot of memory &ndash; sometimes the memory requirement may reach 1&nbsp;GB or more. To reduce time and memory requirements of your script you can try to restrict queries to smaller code point sets (e.g. querying either individual <em>planes</em> or <em>blocks</em>). If you need to query the whole codespace, it may be better to use a <em>repeat</em> statement to iterate over all <em>planes</em> and query each <em>plane</em> individually inside the <em>repeat</em> loop.
+</p>
+<h3>Class <em>code point</em></h3>
+<ul>
+<li>Keep in mind that ID and index are different things for code points. While the ID of a code point is identical to the actual code point value, the index is the code point value plus 1. For example <em>the first code point</em> specifies <em>code point id 0</em>.</li>
+<li>Be careful when using 'whose' clauses to filter code points in very large sets (such as the application’s set), as this will probably time out the script while UnicodeChecker evaluates the clause and also uses very much RAM (possibly&nbsp;>&nbsp;1&nbsp;GB&nbsp;).</li>
+</ul>
+<h3>Class <em>plane</em></h3>
+<p>Similar to <em>code point</em>, be careful not to confuse ID and index when referring to individual planes: <em>plane id 0</em> is identical to <em>plane 1</em>, etc.</p>
+<h3>Unicode Strings in AppleScript on Mac OS X 10.6 and Later</h3>
+<p>
+As of Mac OS X 10.6 (Snow Leopard), the AppleScript-Editor correctly handles Unicode strings.
+</p>
+<h3>Unicode Strings in AppleScript on Mac OS X 10.5 and earlier</h3>
+<p>
+On Mac OS X 10.5 (Leopard) and earlier, using Unicode strings in AppleScript is not trivial: For example, when you enter <em>set theText to "&#8523;"</em> in Script Editor it will be replaced by <em>set theText to "?"</em>. As a workaround you can enter the hexadecimal UTF-16 or UTF-8 codes to produce Unicode strings:
+</p>
+<ul>
+<li><em>set theText to (&laquo;data utxt214B&raquo; as Unicode text)</em></li>
+<li><em>set theText to (&laquo;data utf8E2858B&raquo; as Unicode text)</em></li>
+</ul>
+<p>
+There is a caveat to this: Although AppleScript also accepts <em>set theText to &laquo;data utxt214B&raquo;</em> without the coercion <em>as Unicode text</em>, the resulting string <em>is different on Intel and PowerPC Macs</em>. This is due to the different endian-ness of Intel and PowerPC processors. So it is a good idea to always use <em>(&laquo;data utf8&hellip;&raquo; as Unicode text)</em> which will produce identical strings on both architectures.
+</p>
+
+<h2>Are you using AppleScript?</h2>
+<p>
+We are interested in how you use UnicodeChecker's AppleScript support. So <a href="mailto:earthlingsoft@earthlingsoft.net?subject=UnicodeChecker">drop us a line</a> and let us know which AppleScript features you find particularly useful and which you'd like to see in future versions.
+</p>
+
+</div>
+</body>
+</html>

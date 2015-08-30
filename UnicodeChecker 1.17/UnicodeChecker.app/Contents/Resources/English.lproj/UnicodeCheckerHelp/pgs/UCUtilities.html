@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Utilities</title>
+<meta name="description" content="UnicodeChecker Utilities" />
+</head>
+<body>
+<div id="banner">
+<a name="UCUtilities"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Utilities</h1>
+</div>
+<p>
+UnicodeChecker contains a number of Utilities for displaying and converting strings to and from a number of formats. 
+They can be accessed using the “New Utilities Window” command from the File menu. Use the popup menu in the window to choose the Utility you want to use. Note that several Utility windows can be opened at the same time in case you need different conversions at once. UnicodeChecker comes with the following Utilities pre-installed:
+</p><dl>
+
+<dt>Diff</dt>
+<dd>Shows differences between two strings. For display purposes, new line and some other white space characters are replaced by a space (U+0020). However, the hexadecimal values will correctly represent the original input strings.
+</dd>
+
+<dt>Escape</dt>
+<dd>Escapes or unescapes strings to or from CSS 1, CSS 2, CSS 2.1, C99, Java or URL (UTF-8) percent escape codes. <a  href="help:anchor='UCEscapes' bookID='UnicodeChecker Help'">More information on Escaping.</a>
+</dd>
+
+<dt>HTML</dt>
+<dd>Converts Unicode code points into the according HTML entity representation or the other way round. When converting to HTML entities you can specify if you want to convert code points from the low ASCII range (lower than U+0080) as well (this only affects the ampersand ‘&amp;’, lower than ‘&lt;’, greater than ‘&gt;’ and double quote ‘"’ characters).
+</dd>
+
+<dt>IDNA</dt>
+<dd>This is an implementation of “Internationalized Domain Names In Applications (IDNA)”. See <a href="help:anchor='UCIDNA' bookID='UnicodeChecker Help'">IDNA in UnicodeChecker Help</a> for more information.
+</dd>
+
+<dt>Length</dt>
+<dd>Displays the number of codepoints in the input string along with the number of code units and bytes required to represent the input in UTF-8, UTF-16 and UTF-32 encoding. A code unit is defined to be 1 byte in UTF-8, 2 bytes in UTF-16 and 4 bytes in UTF-32.
+</dd>
+
+<dt>Normalization</dt>
+<dd>Normalizes any given string using the four Unicode Normalization Forms specified in <a href="http://www.unicode.org/unicode/reports/tr15/">Unicode Standard Annex #15</a>. A disabled button with label ‘Equal’ is displayed next to normalized forms which are identical to the input string. If the normalized for differs from the input string, a button with label ‘Diff’ is displayed which will take you to the ‘Diff’ utility for comparing the differences.
+</dd>
+
+<dt>Split up</dt>
+<dd>Any text you enter is split up into its Unicode code points. You can double click the table cells to edit their contents (insert or remove characters) and by using drag and drop.
+</dd>
+
+</dl>
+
+<p>
+In case these Utilities do not meet your needs, note that additional Utilities can be added to UnicodeChecker as plugins. <a href="help:anchor='UCDeveloper' bookID='UnicodeChecker Help'">More information for developers.</a>
+</p>
+
+</div>
+</body>
+</html>

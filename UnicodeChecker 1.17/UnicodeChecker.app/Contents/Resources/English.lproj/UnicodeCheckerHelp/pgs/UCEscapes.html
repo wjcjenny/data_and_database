@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Escapes</title>
+<meta name="description" content="UnicodeChecker Escapes" />
+</head>
+<body>
+<div id="banner">
+<a name="UCEscapes"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Escapes</h1>
+</div>
+<p>
+UnicodeChecker provides escaping and unescaping functions using various formats. You can either use the according “String Utility” (from the “File” menu) or AppleScript commands for (un-)escaping. 
+</p><p>
+The default set of characters that will not be escaped for each format is specified in the following list of formats. The AppleScript commands allow you to specify exactly which characters should be preserved when escaping a string.
+</p><p>
+Note that UnicodeChecker only (un-)escapes Unicode escapes – it will not touch other escapes like \" etc. Also note that unescaping and then re-escaping a string will not always result in the original string due to some degrees of freedom in the specifications. However, escaping and then unescaping should always result in the original string.
+There are quite a lot of different escape formats for different programming languages, etc. 
+</p><p>
+If you require a specific format not supported by UnicodeChecker yet, please <a href="mailto:steffen@earthlingsoft.net?subject=UnicodeChecker%20Escaping">send  an e-mail</a>. 
+</p><p>
+Some details on the different supported formats:
+</p>
+
+<dl>
+<dt id="css1">CSS 1</dt>
+<dd>
+<p>
+The <a href="http://www.w3.org/TR/CSS1#forward-compatible-parsing">CSS 1 Recommendation</a> states  that <q>the backslash followed by at most four hexadecimal digits (0..9A..F) stands for the Unicode character with that number</q>. This is also expressed by the <a href="http://www.w3.org/TR/CSS1#appendix-b">CSS 1 grammar</a>. This means that codepoints outside the Basic Multilinugal Plane (i.e. greater than 0xFFFF) must be represented using the corresponding surrogate pair.
+</p><p>
+Default set of characters that will not be escaped: <kbd>U+0000..007F</kbd>.
+</p><p>
+Examples:
+</p><ul>
+<li><kbd>H\65llo</kbd> → <kbd>Hello</kbd>
+</li><li><kbd>10\6502</kbd> → <kbd>10攂</kbd>
+</li><li><kbd>10\006502</kbd> → <kbd>10e02</kbd>
+</li>
+</ul>
+</dd>
+
+<dt id="css2">CSS 2</dt>
+<dd><p>
+The <a href="http://www.w3.org/TR/CSS2/syndata.html#escaped-characters">CSS 2 Recommendation</a> extends Unicode escapes to at most six hexadecimal characters <a href="http://www.w3.org/TR/CSS2/grammar.html#q2">(grammar)</a> so higher plane codepoints can be represented using a single escape. For simplicity UnicodeChecker will always use all 6 digits when escaping.
+</p><p>
+The first whitespace character after a Unicode escape is ignored according to CSS 2, therefore UnicodeChecker inserts a space character after each escaped character in order to preserve whitespaces from the original string (although it might not always be strictly necessary). CSS 2 considers ' ', '\t', '\n', '\f' and '\r' as whitespace (they seemingly forgot the combination '\r\n' and added it in CSS 2.1).
+</p><p>
+Default set of characters that will not be escaped: <kbd>U+0000..007F</kbd>.
+</p><p>
+Examples: 
+</p><ul>
+<li><kbd>\000041BC</kbd> → <kbd>ABC</kbd>
+</li><li><kbd>\000041␣BC</kbd> → <kbd>ABC</kbd>
+</li><li><kbd>\41BC</kbd> → <kbd>䆼</kbd>
+</li><li><kbd>\41&nbsp;BC</kbd> → <kbd>ABC</kbd>
+</li><li><kbd>\41&nbsp;&nbsp;BC</kbd> → <kbd>A&nbsp;BC</kbd>
+</li>
+</ul>
+</dd>
+
+<dt id="css21">CSS 2.1</dt>
+<dd>
+<p>
+The only difference to CSS 2 is that '\r\n' is also considered a single whitespace after a Unicode escape. (<a href="http://www.w3.org/TR/CSS21/syndata.html#escaped-characters">Recommendation</a>, <a href="http://www.w3.org/TR/CSS21/grammar.html#q2">grammar</a>).
+</p><p>
+Default set of characters that will not be escaped: <kbd>U+0000..007F</kbd>.
+</p>
+</dd>
+
+<dt id="c99">C99</dt>
+<dd><p>
+The Programming Language C international standard ISO/IEC 9899:1999 (or C99 for short) in its current form is usually not available publically but you should be able to download <a href="http://www.open-std.org/JTC1/SC22/WG14/www/standards">a PDF file containing the standard including recent technical corrigenda</a>. 
+</p><p>
+Therein, Unicode escapes are defined as \unnnn and \Unnnnnnnn (note the case-sensitivity of “u” vs. “U”), where escapes “shall not specify a character whose short identifier is less than 00A0 other than 0024 ($), 0040 (@), or 0060 (‘), nor one in the range D800 through DFFF inclusive” (Section 6.4.3 Universal character names). U+D800..DFFF contains the surrogate pair blocks, therefore codepoints outside the Basic Multilingual Plane will always be represented using one \U escape instead of a surrogate pair. However, UnicodeChecker will also unescape any surrogate pairs in the input string. If less than the required number of hexadecimal digits are found when unescaping \u or \U UnicodeChecker will leave the escape sequence untouched.
+</p><p>
+Default set of characters that will not be escaped: <kbd>U+0000..009F</kbd>.
+</p>
+</dd>
+
+<dt id="coct">C (octal UTF-8)</dt>
+<dd><p>
+In addition to real Unicode escapes, the Programming Language C specifies octal escape sequences in the forms \n, \nn and \nnn, where the n are octal digits (0–7). When using UTF-8 encoding for such escape sequences, Cocoa developers can use NSString’s <span style="white-space:nowrap;">–initWithUTF8String:</span> or <span style="white-space:nowrap;">+stringWithUTF8String:</span> methods to programatically create Unicode strings.
+</p><p>
+Default set of characters that will not be escaped: <kbd>U+0000..007F</kbd>.
+</p>
+</dd>
+
+<dt id="java">Java</dt>
+<dd><p>
+According to the <a href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#100850">Java Language Specification</a> Java translates “the ASCII characters \u followed by four hexadecimal digits to the Unicode character with the indicated hexadecimal value”. 
+</p><p>
+As exactly four hexadecimal digits are required, UnicodeChecker will ignore sequences with less than 4 digits when unescaping. The specification further states that multiple “u” are also allowed and that Java “specifies a standard way of transforming a program written in Unicode into ASCII” where an extra “u” is added for each escape already found in the input string. UnicodeChecker will not add this extra “u” when escaping and escape sequences with multiple “u” will always be unescaped to the corresponding Unicode codepoint.
+</p><p>
+Default set of characters that will not be escaped: <kbd>U+0000..007F</kbd>.
+</p><p>
+Examples:
+</p><ul>
+<li><kbd>\u0046GH</kbd> → <kbd>FGH</kbd>
+</li><li><kbd>\uuu0046GH</kbd> → <kbd>FGH</kbd>
+</li><li><kbd>\u46GH</kbd> → <kbd>\u46GH</kbd>
+</li>
+</ul>
+</dd>
+
+
+<dt id="url">URL (UTF-8)</dt>
+<dd><p>
+URL escapes are defined in <a href="http://www.ietf.org/rfc/rfc2396.txt">RFC 2396</a> section 2.4.1 “as a character triplet, consisting of the percent character '%' followed by the two hexadecimal digits representing the octet code”. However, RFC 2396 does not specify which encoding to use in actual URIs.
+UnicodeChecker – as its name implies – always assumes UTF-8 encoding.
+</p><p>
+Default set of characters that will not be escaped: <kbd>!$&amp;'()*+,-./0-9:;=?@A-Z_a-z~</kbd> (this corresponds to <kbd>U+0021</kbd>, <kbd>U+0024</kbd>, <kbd>U+0026..003B</kbd>, <kbd>U+003D</kbd>, <kbd>U+003F..005A</kbd>, <kbd>U+005F</kbd>, <kbd>U+0061..007A</kbd>, <kbd>U+007E</kbd>).
+</p><p>
+Example: <kbd>A%20B</kbd> → <kbd>A B</kbd></p>
+</dd>
+</dl>
+
+</div>
+</body>
+</html>

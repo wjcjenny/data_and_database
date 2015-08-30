@@ -1,0 +1,211 @@
+/* Tiger Mac Help task_style.css v2.0f*/
+/* <html><head><meta name="robots" content="noindex"></head></html> */
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #484848;
+	background-color: #fff;
+	line-height: 1.5;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 200;
+	font-family: HelveticaNeue-Light, 'Helvetica Neue Light', HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin-top: 0;
+}
+
+
+h2 {
+	font-size: 20px;
+	font-weight: 200;
+	font-family: HelveticaNeue-Light, 'Helvetica Neue Light', HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin-top: 50px;
+}
+
+h3 {
+    font-size: 14px;
+	margin-top: 20px;
+	margin-bottom: -4px;
+}
+
+p, ol, ul, dl, dd {
+    margin-top: .5em;
+    margin-bottom: 1em;
+}
+
+p, td, th {
+	text-decoration: none;
+}
+
+p.screenshot { text-align:center;}
+
+
+ol li, ul li {
+	margin-top: .25em;
+	margin-bottom: .5em;
+	list-style-position: outside;
+	padding: 0;
+}
+
+ol, ul {
+    list-style-position: outside;
+    padding: 0;
+    margin-left: 20px;
+}
+
+dt {
+	font-weight:bold;
+}
+dd {
+    margin-left: 20px;
+}
+
+a {
+	color: #0080ff;
+	text-decoration: none;
+}
+
+
+a:hover {
+	text-decoration: underline;
+}
+
+hr {
+	text-decoration: none;
+	border: solid 1px #bfbfbf;
+}
+
+#banner {
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    padding: -2px 6px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    float: left;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+#caticon {
+	padding-right: 5px;
+	margin-left: -3px;
+	float: left;
+	}
+
+
+#pagetitle {
+    margin-bottom: 24px;
+}
+
+
+#mainbox {
+	padding: 50px;
+	padding-top: 70px;
+}
+
+#taskbox {
+	background-color: #e6edff;
+	list-style-type: decimal;
+	list-style-position: outside;
+	margin: 12px 0;
+	padding: 2px 12px;
+	border: solid 1px #bfbfbf;
+}
+
+
+#taskbox h2 {
+	margin-top: 8px;
+	margin-bottom: -4px;
+}
+
+#machelp {
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+#index {
+    background-color: #f2f2f2;
+    padding-top: 2px;
+    padding-right: 25px;
+    top: 2px;
+    right: 12px;
+    width: auto;
+    float: right;
+}
+
+#next {
+	position: absolute;
+	top: 49px;
+	left: 88%;
+	}
+	
+#asindent {
+    margin-left: 22px;
+	font-size: 9pt;
+	font-family: Verdana, Courier, sans-serif;
+}
+        
+.bread {
+	margin: -9px 0 -6px;
+}
+
+.leftborder {
+    color: #00f;
+    font-size: 8pt;
+    margin: -9px 0 -6px;
+    padding-top: 24px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    border-left: 1px solid #bfbfbf;
+}
+
+.mult {
+	margin-top: -8px;
+}
+
+.blue {
+	background-color: #e6edff;
+	margin-top: -3px;
+	margin-bottom: -3px;
+	padding-top: -3px;
+	padding-bottom: -3px;
+}
+
+.rules {
+	border-bottom: 1px dotted #ccc;
+}
+
+.dots {
+	border: dotted 1px #ccc;
+}
+
+.seealso {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+code {
+	color: black;
+	font-size: 9pt;
+	font-family: Verdana, Courier, sans-serif;
+}
+table {
+	border-collapse: collapse;
+}
+td, th {
+	border-bottom: 1px solid lightgray;
+	padding: 5px 16px 5px 8px;
+}
+th {
+    background-color: #97a6b2;
+    color: white;
+    text-align: left;
+    padding: 2px 16px 2px 8px;
+}

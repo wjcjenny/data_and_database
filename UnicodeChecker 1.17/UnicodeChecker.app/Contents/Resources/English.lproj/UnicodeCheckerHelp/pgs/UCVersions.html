@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Version History</title>
+<meta name="description" content="UnicodeChecker Version History" />
+</head>
+<body>
+<div id="banner">
+<a name="UCVersions"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Version History</h1>
+</div>
+
+<dl>
+
+
+<dt>1.17 (2015-06-21)</dt>
+<dd><ul>
+<li> Uses Unicode 8.0.0 data files. </li>
+<li> Changed the “Age” property in the “Advanced Find…” window to “Version of Assignment” which now provides a better search for Unicode versions: The possible values are shown in a list. Filtering of this field can now be done using relational operators. </li>
+<li> Added human readable property names to Advanced Find popup menus for “General Category” and “Bidi category”. </li>
+<li> Minor user interface fixes and enhancements. </li>
+</ul></dd>
+
+<dt>1.16.1 (2015-02-25)</dt>
+<dd><ul>
+<li> Notifications are now displayed for all conversion methods which are initiated from the system-wide Services menu. </li>
+<li> Minor refinement of the display of results in the “Advanced Find…” window: Slightly dimmed the information about matching properties, so the Unicode number and name are more readable. </li>
+<li> New high-resolution icons for the toolbar of the Utilities window. </li>
+<li> Redesigned and updated the UnicodeChecker Help book. </li>
+<li> Bugfix: Some alert panels did not respond to button clicks. </li>
+<li> Bugfix: Smart substitutions (e.g. quotes) were enabled for the main character text field. </li>
+<li> Bugfix: The red coloring of differing text parts in the Diff utility was incorrect for some cases. </li>
+<li> Bugfix: The text in the “Generate Spotlight Index…” was not completely visible in some cases. </li>
+</ul></dd>
+
+<dt>1.16 (2015-02-17)</dt>
+<dd><ul>
+<li> Uses Unicode 7.0.0 data files. </li>
+<li> New “Advanced Find…” window allows filtering of codepoints using detailed criteria for Unicode properties such as Name, Age, Block, General Category, Unihan properties, etc. </li>
+<li> New integrated QuickLook plug-in for previewing characters found via Spotlight. </li>
+<li> Information from the LineBreak data file is now shown in the “Misc” tab. </li>
+<li> The font size of the displayed codepoint can now be changed. </li>
+<li> When selecting a codepoint in the “Split Up” utility, the corresponding codepoint information is shown in the main window. </li>
+<li> Notifications about character replacement done by one of the conversion functions in the “Services” menu are now shown in Notification Center on OS X 10.8 and later. (Support for notifications using “Growl” has been dropped.) </li>
+<li> Bugfix: Escape utility was not honoring “Escape all codepoints” setting for C and URL formats. </li>
+<li> Bugfix: UTF8-Hex-Input would incorrectly treat 0xEFBBBF as invalid. </li>
+<li> Minor improvements and bugfixes. </li>
+<li> New application icon. </li>
+<li> Requires OS X 10.7 or later. </li>
+</ul></dd>
+
+<dt>1.15.1 (2010-10-27)</dt>
+<dd><ul>
+<li> The code point type can be queried in AppleScript. </li>
+<li> Support for Sudden Termination under Mac OS X 10.6. </li>
+<li> Bugfix: Bidi rule for IDNA 2008 was incorrect. </li>
+<li> Bugfix: When using the IDNA utility in multiple utility windows simultaneously, the instances would not allow to set the protocols individually. </li>
+<li> Bugfix: When using the Escape utility in multiple utility windows simultaneously, the instances would not allow to set the escaping methods individually. </li>
+<li> Bugfix: Utilities windows would not close in some situations. </li>
+<li> Bugfix: Utilities were leaking memory. </li>
+</ul></dd>
+
+<dt>1.15 (2010-10-21)</dt>
+<dd><ul>
+<li> Uses Unicode 6.0.0 data files. </li>
+<li> Support for IDNA 2008 (RFCs 5890-5894). </li>
+<li> Universal Binary with support for Intel 64/32 bit and PPC 32 bit architectures. </li>
+<li> Requires Mac OS X 10.4 or later. </li>
+<li> Minor improvements and bugfixes. </li>
+</ul></dd>
+
+<dt>1.14 (2009-10-11)</dt>
+<dd><ul>
+<li> Uses Unicode 5.2.0 data files. </li>
+<li> Uses version 1.7 of the “Adobe Glyph List For New Fonts”. </li>
+<li> New QuickLook plugin for previewing Codepoints found via the (optionally) generated Spotlight index. </li>
+<li> New “Length” utility for displaying number of codepoints along with number of code units and bytes for UTF-8, UTF-16 and UTF-32 encoding. </li>
+<li> The “Split Up” utility now supports drag and drop for rearranging and adding new codepoints. </li>
+<li> Added option in the “Escape” plugin to escape every codepoint. Previously, only codepoints from a predefined set were escaped. </li>
+<li> Minor improvements and bugfixes. </li>
+</ul></dd>
+
+<dt>1.13 (2007-08-27)</dt>
+<dd><ul>
+<li> New Favorite characters library. </li>
+<li> Codepoint references in the Unihan table are clickable links now. </li>
+<li> Menu items representing the character block containing the current codepoint are highlighted. </li>
+<li> Fixed a bug where Utilities windows were not working on Mac OS X 10.3. </li>
+<li> For codepoints that have been deprecated in Unicode a “Deprecated” label is displayed next to the glyph. </li>
+<li> Minor cosmetic improvements. </li>
+</ul></dd>
+
+<dt>1.12.1 (2007-02-26)</dt>
+<dd><ul>
+<li> UnicodeChecker can now directly download and install the Unihan data file. </li>
+<li> UnicodeChecker Help includes instructions for changing keyboard shortcuts for Service menu commands. </li>
+<li> Improved support for Aliases in file paths. </li>
+<li> Fixed a bug where the saved “Unihan Tag Filter” was initially not used for filtering. </li>
+<li> Fixed a bug where UnicodeChecker would hang if “to custom location” was selected in the Spotlight index generation dialog. </li>
+</ul></dd>
+
+<dt>1.12 (2007-02-19)</dt>
+<dd><ul>
+<li> Includes a new “Diff” Utility for viewing differences between two strings. </li>
+<li> The “Find Character” panel now allows to explicitly exclude strings from matching by prefixing them with “-”. </li>
+<li> Information from the Unicode data file HangulSyllableType is included in the “Misc” tab. </li>
+<li> The “Unihan Tag Filter” is now saved between UnicodeChecker starts. </li>
+<li> Cosmetic changes to the Utilities window:
+     <ul>
+     <li> Toolbar items stay highlighted.</li>
+     <li> Cycling through controls using the Tab key has been improved. </li>
+     </ul>
+</li>
+<li> Checking for UnicodeChecker updates is now done using <a href="http://sparkle-project.org">Sparkle</a> by Andy Matuschak. You can choose to automatically check for updates at each startup of UnicodeChecker in the Preferences dialog. </li>
+<li> Under some circumstances Unicode data files could not be read correctly. This resulted in a warning that a file could not be found although the file existed. This has been fixed. </li>
+<li> Fixed a bug where opening the AppleScript dictionary from Script Editor would crash UnicodeChecker on systems prior to Mac OS X 10.4. </li>
+<li> Fixed a bug where UnicodeChecker would crash on systems prior to Mac OS X 10.4 when the starting codepoint was set to U+0000. </li>
+</ul></dd>
+
+<dt>1.11 (2006-09-06)</dt>
+<dd><ul>
+<li> Uses Unicode 5.0 data files </li>
+<li> Information from the Unicode data file NamesList is included in the “Misc” tab. </li>
+<li> Font metrics of the current font can be displayed in the current character text field. (Using “Show Font Metrics” in the Window menu.) </li>
+<li> The Unihan table is now sortable. </li>
+</ul></dd>
+
+<dt>1.10 (2006-05-22)</dt>
+<dd><ul>
+<li> UnicodeChecker is now available as Universal Binary. </li>
+<li> Properties (including Unihan) of individual characters can be queried from AppleScript. </li>
+<li> The find panel lets you select whether you want to include Unihan definitions while searching. (Only available when the Unihan data file is installed.) </li>
+<li> The size of the find panel is saved between UnicodeChecker starts. </li>
+<li> The Unicode versions window was missing the files DerivedCoreProperies.txt and PropertyValueAliases.txt. This has been fixed. </li>
+<li> When finding multiple files for the same Unicode data file prefix, UnicodeChecker now returns the last file as this is more probably the lastest version. </li>
+</ul></dd>
+
+<dt>1.9.1 (2005-11-20)</dt>
+<dd><ul>
+<li> Added (un-)escaping to/from octal escape sequences in the C Programming Language (using UTF-8 encoding). </li>
+<li> UnicodeChecker Help is now an Apple Help help book instead of a single text file. </li>
+<li> CSS 2/2.1 unescaping would not unescape characters from higher planes (outside BMP). This has been fixed. </li>
+<li> The current character text field will not use ligatures when entering multiple characters that could be represented using a ligature in the current font in order to avoid confusion. </li>
+</ul></dd>
+
+<dt>1.9 (2005-11-03)</dt>
+<dd><ul>
+<li> UTF-8 input method error messages mention allowed value ranges for individual bytes more specifically.</li>
+<li> Property value descriptions are now read from PropertyValueAliases.txt. (Files in “Unicode Descriptions” folders will override the information from PropertyValueAliases.txt)</li>
+<li> The Unicode data files PropList, Scripts and DerivedAge were not read correctly in UnicodeChecker 1.8. This bug has been fixed.</li>
+<li> The “Misc” tab now displays information from the DerivedCoreProperties file.</li>
+<li> Extended string (un-)escaping to CSS 1, CSS 2, CSS 2.1, C99, Java and URL formats. Available as “String Utility” and from AppleScript.</li>
+<li> Added a Dock menu</li>
+<li> The keyboard shortcut Command–2 now cycles through the open Utilities windows (or creates a new one if none exists yet). In order to create another Utilities window, use Command–N.</li>
+<li> UnicodeChecker’s core functionality is available to developers through a framework inside the application bundle.</li>
+</ul>
+</dd>
+
+<dt>1.8 (2005-07-09)</dt>
+<dd><ul>
+<li> Spotlight support: UnicodeChecker can generate an index for finding characters by name using Spotlight search.</li>
+<li> The UTF-8 input method could have displayed an incorrect error message in the ToolTip. This has been fixed. (Only the error message itself was incorrect, parsing of the string should have been correct.)</li>
+<li> UnicodeChecker starts up much faster.</li>
+<li> The “Find Character by Name” panel performs an AND search of the space delimited substrings. In order to include a space character in a search string, the (sub-)string has to be enclosed in double quotes.</li>
+<li> The Unihan kDefinition field is now included in “Find Character by Name”.</li>
+<li> The currently selected glyph is displayed in the Find panel.</li>
+<li> The “Split” utility supports editing of the individual strings in the glyph table.</li>
+<li> The font size of glyphs displayed in the main window’s glyph table can be changed (from the “Window” menu).</li>
+<li> Displays the version of the currently used Unicode data files. (See section “Unicode Version Information” in the UnicodeChecker Help for more information.)</li>
+<li> Unicode data files can be overridden by placing appropriate files in any “Library/Application Support/UnicodeChecker/Unicode Data” folder.</li>
+<li> Fixed a bug where setting UnicodeChecker preferences to display the most recently displayed codepoint after starting up would actually display a totally different codepoint.</li>
+</ul></dd>
+
+<dt>1.7 (2005-05-08)</dt>
+<dd><ul>
+<li> Uses Unicode 4.1 data files</li>
+<li> Support for the Unihan data file. (The Unihan.txt file is not included with UnicodeChecker as it is several megabytes in size. See the UnicodeChecker Help for further instructions.)</li>
+<li> There was a bug in the AppleScript command “XHTML representation of” which sometimes prevented the option for decimal/hexadecimal entities to work as expected. This has been fixed.</li>
+<li> Added the optional parameter “named entities” to the AppleScript command “XHTML representation of” for selecting whether named entities should be used (the default) when available for a codepoint or not.</li>
+<li> The last codepoint inside a character block would not be displayed as belonging to its character block. This has been fixed.</li>
+<li> In IDNA conversion: Strings with leading separators (i.e. dots) would have the separators in the wrong places after conversion. This has been fixed.</li>
+<li> In IDNA-Utility: Display or non-display of warning message “Contains codepoint unassigned in nameprep” below the conversion output fields could have been wrong. This has been fixed.</li>
+<li> HTML to Unicode conversion can now optionally preserve ASCII entities (previously this was only possible for Unicode to HTML conversion) – this is available for the HTML conversion utility as well as from a new service menu entry and via AppleScript.</li>
+<li> The tab that was selected in the main window when quitting is now remembered.</li>
+<li> Codepoints can be entered numerically using UTF-8. (When entering invalid UTF-8 sequences, the ToolTip of the text field will show detailed diagnostics.)</li>
+<li> Codepoints from the main window table can be dragged and dropped.</li>
+</ul></dd>
+
+<dt>1.6.2 (2005-01-16)</dt>
+<dd><ul>
+<li> Changed normalization implementation to adhere to <a href="http://www.unicode.org/review/pr-29.html">PR-29</a>.</li>
+<li> Added AppleScript command 'find codepoint' for remotely opening the find panel</li>
+<li> Provided a search template for use with LaunchBar</li>
+<li> UTF-8 display can be toggled between hexadecimal or octal by clicking on the UTF-8 label in the “Codes” tab</li>
+<li> Pasted characters retain their original font</li>
+<li> New Utility windows are opened with the most recently used utility</li>
+<li> Notifications stating the number of replaced codepoints after using any of the HTML/Unicode conversion services are now displayed using <a href="http://growl.info">Growl</a> if installed. </li>
+<li> In the find panel up and down keys can now be used to navigate through the list without the need of setting the focus to the table first</li>
+</ul></dd>
+
+
+<dt>1.6.1 (2004-11-01)</dt>
+<dd><ul>
+<li> Fixed a bug where converting XHTML to Unicode would remove whitespace and newline characters after the XHTML entity</li>
+<li> Preloading the font menu on UnicodeChecker startup can now be toggled in the preferences</li>
+<li> Uses Unicode 4.0.1 data files</li>
+</ul></dd>
+
+
+<dt>1.6 (2004-03-04)</dt>
+<dd><ul>
+<li> Significant performance improvements</li>
+<li> Displays the currently used font</li>
+<li> Lets you select the font to use for display on a global basis in the prefs</li>
+<li> Shows all fonts encoding a given glyph and allows you to select one of these fonts for display</li>
+<li> Preference settings for the XHTML service (whether to use decimal, hex or named entities)</li>
+<li> History of visited codepoints</li>
+<li> Support for Adobe Glyph Lists</li>
+<li> Casings now display the mapped character(s) in addition to the mapped code(s)</li>
+<li> Minor cosmetic fixes to window behaviour, menu item names, menu key equivalents, &amp;c.</li>
+<li> Needs Mac OS X 10.3 or greater (sorry!)</li>
+</ul></dd>
+
+<dt>1.5.7 (2003-04-27)</dt>
+<dd><ul>
+<li> Uses Unicode 4.0 data files</li>
+</ul></dd>
+
+<dt>1.5.6 (2003-04-09)</dt>
+<dd><ul>
+<li> Updated to comply with RFC 3490 for IDNA</li>
+<li> AppleScript support for converting to and from IDNA</li>
+<li> AppleScript support, Services menu entry and new utility for adding and replacing percent escape sequences for URLs</li>
+</ul></dd>
+
+<dt>1.5.5 (2003-01-03)</dt>
+<dd><ul>
+<li> AppleScript support for converting to and from XHTML entities and displaying character information</li>
+</ul></dd>
+
+<dt>1.5.4 (2002-11-12)</dt>
+<dd><ul>
+<li> Runs in Mac OS X 10.1 again</li>
+</ul></dd>
+
+<dt>1.5.3 (2002-11-07)</dt>
+<dd><ul>
+<li> Fixed a bug where Hangul decompositions would not be displayed correctly</li>
+</ul></dd>
+
+<dt>1.5.2 (2002-10-26)</dt>
+<dd><ul>
+<li> The HTML entity conversion services now report the number of replaced characters/entities</li>
+<li> New Utility for converting to and from HTML entities (formerly only available from the Services menu)</li>
+<li> Unicode Normalization Forms are now also available from the Services menu</li>
+<li> The “Display Character Information” service now recognises U+nnnn, &amp;#123;, &amp;#x12a; and &amp;abc; notations.</li>
+<li> Improved speed for string conversion</li>
+<li> The Unicode 1 names for codepoints are included for the “Find Codepoint” menu command</li>
+</ul></dd>
+
+<dt>1.5.1 (2002-04-05)</dt>
+<dd><ul>
+<li> In the Planes PopUp the "Supplementary Special-purpose Plane" has been corrected to be plane 14 instead of plane 16</li>
+</ul></dd>
+
+<dt>1.5 (2002-04-03)</dt>
+<dd><ul>
+<li> Services</li>
+<li> Lots of additional codepoint information</li>
+<li> Unicode Utilities</li>
+</ul></dd>
+
+<dt>1.1 (2002-01-23)</dt>
+<dd><ul>
+<li>Unicode Character Blocks can be found by name or code</li>
+<li>Individual characters can be found by Unicode name</li>
+<li>The corresponding Unicode name is displayed for the selected character</li>
+</ul></dd>
+
+<dt>1.0 (2001-11-12)</dt>
+<dd><ul>
+<li> Initial Release</li>
+</ul></dd>
+
+</dl>
+
+</div>
+</body>
+</html>

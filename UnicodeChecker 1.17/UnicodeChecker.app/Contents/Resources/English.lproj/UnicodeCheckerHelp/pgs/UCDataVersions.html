@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link media="all" rel="stylesheet" href="../sty/task_style.css" />
+<title>Unicode Data Versions</title>
+<meta name="description" content="Unicode Data Versions" />
+</head>
+<body>
+<div id="banner">
+<a name="UCDataVersions"></a>
+<div id="machelp">
+<a class="bread" href="help:anchor='access' bookID='UnicodeChecker Help'">UnicodeChecker Help</a>
+</div>
+</div>
+<div id="mainbox">
+<div id="caticon">
+<img width="32" height="32" alt="UnicodeChecker Icon" src="../gfx/UCIcon.png" /></div>
+<div id="pagetitle">
+<h1>Unicode Data Versions</h1>
+</div>
+<p>
+UnicodeChecker tries to determine the Unicode versions of the Unicode Data files and displays the currently used version in the bottom left corner of the main window. 
+</p><p>
+If UnicodeChecker is unable to identify the version of the UnicodeData file “Unknown version of UnicodeData” is displayed. If the Unicode version of any data file can not be determined or differs from the other files then UnicodeChecker will append “(inconsistent)” to the version display. The ToolTip help of the version display reveals the versions of all verified data files. 
+</p><p>
+Clicking the version display or choosing “Show Data File Versions Window” from the “Window” menu opens a window displaying the version and exact file location of each data file.
+</p><p>
+The Unicode version of the data files is determined as follows:
+</p><ul>
+<li>The filename matches the pattern “DataFilename-VERSION.txt”.
+</li><li>
+The first line of the data file is of the form “# DataFilename-VERSION.txt”.
+</li><li>
+For the UnicodeData file and Index file UnicodeChecker compares the file’s MD5 hash to a list of known hashes (taken from the file “UnicodeData Hashes.plist” inside the UnicodeChecker bundle).
+</li><li>
+For identifying the version number of the Unihan data files UnicodeChecker uses several methods: Prior to Unicode 5.2.0 there was only a single Unihan file with the first line containing a string of the form “Unicode version: VERSION”. Since Unicode 5.2.0 the Unihan data is spread among multiple files. For Unicode 5.2.0 these files did not contain version information. Since Unicode version 6.0.0 the files do contain version information. UnicodeChecker extracts the version information from the file contents and additionally compares the files’ MD5 hashes to a list of known hashes (taken from the file “UnicodeData Hashes.plist” inside the UnicodeChecker bundle).
+</li><li>
+For the NamesList file UnicodeChecker searches the first line of the file for the string “@@@&lt;tab&gt; The Unicode Standard VERSION”.
+</li>
+</ul>
+<p>
+Note:
+</p>
+<ul>
+<li>
+The Unicode data files may conform to one or more versions of the Unicode standard. If multiple versions are found using the methods described above they will all be accepted.
+</li>
+</ul>
+
+</div>
+</body>
+</html>

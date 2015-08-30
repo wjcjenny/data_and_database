@@ -1,0 +1,526 @@
+<?xml version="1.0"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+
+<dictionary title="UnicodeChecker Terminology">
+
+    <suite name="Standard Suite" code="????" description="Common classes and commands for all applications.">
+ 
+        <command name="open" code="aevtodoc" description="Open a document.">
+            <direct-parameter description="The file(s) to be opened.">
+                <type type="file" list="yes"/>
+            </direct-parameter>
+        </command>
+ 
+        <enumeration name="save options" code="savo">
+            <enumerator name="yes" code="yes " description="Save the file."/>
+            <enumerator name="no" code="no  " description="Do not save the file."/>
+            <enumerator name="ask" code="ask " description="Ask the user whether or not to save the file."/>
+        </enumeration>
+ 
+        <command name="close" code="coreclos" description="Close a document.">
+            <cocoa class="NSCloseCommand"/>
+            <direct-parameter type="specifier" description="the document(s) or window(s) to close."/>
+            <parameter name="saving" code="savo" type="save options" optional="yes" description="Should changes be saved before closing?">
+                <cocoa key="SaveOptions"/>
+            </parameter>
+            <parameter name="saving in" code="kfil" type="file" optional="yes" description="The file in which to save the document, if so.">
+                <cocoa key="File"/>
+            </parameter>
+        </command>
+ 
+        <command name="save" code="coresave" description="Save a document.">
+            <direct-parameter type="specifier" description="The document(s) or window(s) to save."/>
+            <parameter name="in" code="kfil" type="file" optional="yes" description="The file in which to save the document.">
+                <cocoa key="File"/>
+            </parameter>
+            <!--<parameter name="as" code="fltp" type="saveable file format" optional="yes" description="The file format to use.">-->
+            <parameter name="as" code="fltp" type="text" optional="yes" description="The file format to use.">
+                <cocoa key="FileType"/>
+            </parameter>
+        </command>
+ 
+        <enumeration name="printing error handling" code="enum">
+            <enumerator name="standard" code="lwst" description="Standard PostScript error handling">
+                <cocoa boolean-value="NO"/>
+            </enumerator>
+            <enumerator name="detailed" code="lwdt" description="print a detailed report of PostScript errors">
+                <cocoa boolean-value="YES"/>
+            </enumerator>
+        </enumeration>
+ 
+        <record-type name="print settings" code="pset">
+            <property name="copies" code="lwcp" type="integer" description="the number of copies of a document to be printed">
+                <cocoa key="NSCopies"/>
+            </property>
+            <property name="collating" code="lwcl" type="boolean" description="Should printed copies be collated?">
+                <cocoa key="NSMustCollate"/>
+            </property>
+            <property name="starting page" code="lwfp" type="integer" description="the first page of the document to be printed">
+                <cocoa key="NSFirstPage"/>
+            </property>
+            <property name="ending page" code="lwlp" type="integer" description="the last page of the document to be printed">
+                <cocoa key="NSLastPage"/>
+            </property>
+            <property name="pages across" code="lwla" type="integer" description="number of logical pages laid across a physical page">
+                <cocoa key="NSPagesAcross"/>
+            </property>
+            <property name="pages down" code="lwld" type="integer" description="number of logical pages laid out down a physical page">
+                <cocoa key="NSPagesDown"/>
+            </property>
+            <property name="requested print time" code="lwqt" type="date" description="the time at which the desktop printer should print the document">
+                <cocoa key="NSPrintTime"/>
+            </property>
+            <property name="error handling" code="lweh" type="printing error handling" description="how errors are handled">
+                <cocoa key="NSDetailedErrorReporting"/>
+            </property>
+            <property name="fax number" code="faxn" type="text" description="for fax number">
+                <cocoa key="NSFaxNumber"/>
+            </property>
+            <property name="target printer" code="trpr" type="text" description="for target printer">
+                <cocoa key="NSPrinterName"/>
+            </property>
+        </record-type>
+ 
+        <command name="print" code="aevtpdoc" description="Print a document.">
+            <direct-parameter description="The file(s), document(s), or window(s) to be printed.">
+                <type type="file" list="yes"/>
+                <type type="specifier"/>
+            </direct-parameter>
+            <parameter name="with properties" code="prdt" type="print settings" optional="yes" description="The print settings to use.">
+                <cocoa key="PrintSettings"/>
+            </parameter>
+            <parameter name="print dialog" code="pdlg" type="boolean" optional="yes" description="Should the application show the print dialog?">
+                <cocoa key="ShowPrintDialog"/>
+            </parameter>
+        </command>
+ 
+        <command name="quit" code="aevtquit" description="Quit the application.">
+            <cocoa class="NSQuitCommand"/>
+            <parameter name="saving" code="savo" type="save options" optional="yes" description="Should changes be saved before quitting?">
+                <cocoa key="SaveOptions"/>
+            </parameter>
+        </command>
+ 
+        <command name="count" code="corecnte" description="Return the number of elements of a particular class within an object.">
+            <cocoa class="NSCountCommand"/>
+            <direct-parameter type="specifier" description="The objects to be counted."/>
+            <parameter name="each" code="kocl" type="type" optional="yes" description="The class of objects to be counted." hidden="yes">
+                <cocoa key="ObjectClass"/>
+            </parameter>
+            <result type="integer" description="The count."/>
+        </command>
+ 
+        <command name="delete" code="coredelo" description="Delete an object.">
+            <cocoa class="NSDeleteCommand"/>
+            <direct-parameter type="specifier" description="The object(s) to delete."/>
+        </command>
+ 
+        <command name="duplicate" code="coreclon" description="Copy an object.">
+            <cocoa class="NSCloneCommand"/>
+            <direct-parameter type="specifier" description="The object(s) to copy."/>
+            <parameter name="to" code="insh" type="location specifier" description="The location for the new copy or copies." optional="yes">
+                <cocoa key="ToLocation"/>
+            </parameter>
+            <parameter name="with properties" code="prdt" type="record" description="Properties to set in the new copy or copies right away." optional="yes">
+                <cocoa key="WithProperties"/>
+            </parameter>
+        </command>
+ 
+        <command name="exists" code="coredoex" description="Verify that an object exists.">
+            <cocoa class="NSExistsCommand"/>
+            <direct-parameter type="any" description="The object(s) to check."/>
+            <result type="boolean" description="Did the object(s) exist?"/>
+        </command>
+ 
+        <command name="make" code="corecrel" description="Create a new object.">
+            <cocoa class="NSCreateCommand"/>
+            <parameter name="new" code="kocl" type="type" description="The class of the new object.">
+                <cocoa key="ObjectClass"/>
+            </parameter>
+            <parameter name="at" code="insh" type="location specifier" optional="yes" description="The location at which to insert the object.">
+                <cocoa key="Location"/>
+            </parameter>
+            <parameter name="with data" code="data" type="any" optional="yes" description="The initial contents of the object.">
+                <cocoa key="ObjectData"/>
+            </parameter>
+            <parameter name="with properties" code="prdt" type="record" optional="yes" description="The initial values for properties of the object.">
+                <cocoa key="KeyDictionary"/>
+            </parameter>
+            <result type="specifier" description="The new object."/>
+        </command>
+ 
+        <command name="move" code="coremove" description="Move an object to a new location.">
+            <cocoa class="NSMoveCommand"/>
+            <direct-parameter type="specifier" description="The object(s) to move."/>
+            <parameter name="to" code="insh" type="location specifier" description="The new location for the object(s).">
+                <cocoa key="ToLocation"/>
+            </parameter>
+        </command>
+ 
+        <class name="application" code="capp" description="The application's top-level scripting object.">
+            <cocoa class="NSApplication"/>
+            <property name="name" code="pnam" type="text" access="r" description="The name of the application."/>
+            <property name="frontmost" code="pisf" type="boolean" access="r" description="Is this the active application?">
+                <cocoa key="isActive"/>
+            </property>
+            <property name="version" code="vers" type="text" access="r" description="The version number of the application."/>
+            <!-- UnicodeChecker does not have documents
+            <element type="document">
+                <cocoa key="orderedDocuments"/>
+            </element>-->
+            <element type="window" access="r">
+                <cocoa key="orderedWindows"/>
+            </element>
+            <responds-to name="open">
+                <cocoa method="handleOpenScriptCommand:"/>
+            </responds-to>
+            <responds-to name="print">
+                <cocoa method="handlePrintScriptCommand:"/>
+            </responds-to>
+            <responds-to name="quit">
+                <cocoa method="handleQuitScriptCommand:"/>
+            </responds-to>
+        </class>
+ 
+        <class name="window" code="cwin" description="A window.">
+            <cocoa class="NSWindow"/>
+            <property name="name" code="pnam" type="text" access="r" description="The title of the window.">
+                <cocoa key="title"/>
+            </property>
+            <property name="id" code="ID  " type="integer" access="r" description="The unique identifier of the window.">
+                <cocoa key="uniqueID"/>
+            </property>
+            <property name="index" code="pidx" type="integer" description="The index of the window, ordered front to back.">
+                <cocoa key="orderedIndex"/>
+            </property>
+            <property name="bounds" code="pbnd" type="rectangle" description="The bounding rectangle of the window.">
+                <cocoa key="boundsAsQDRect"/>
+            </property>
+            <property name="closeable" code="hclb" type="boolean" access="r" description="Does the window have a close button?">
+                <cocoa key="hasCloseBox"/>
+            </property>
+            <property name="miniaturizable" code="ismn" type="boolean" access="r" description="Does the window have a minimize button?">
+                <cocoa key="isMiniaturizable"/>
+            </property>
+            <property name="miniaturized" code="pmnd" type="boolean" description="Is the window minimized right now?">
+                <cocoa key="isMiniaturized"/>
+            </property>
+            <property name="resizable" code="prsz" type="boolean" access="r" description="Can the window be resized?">
+                <cocoa key="isResizable"/>
+            </property>
+            <property name="visible" code="pvis" type="boolean" description="Is the window visible right now?">
+                <cocoa key="isVisible"/>
+            </property>
+            <property name="zoomable" code="iszm" type="boolean" access="r" description="Does the window have a zoom button?">
+                <cocoa key="isZoomable"/>
+            </property>
+            <property name="zoomed" code="pzum" type="boolean" description="Is the window zoomed right now?">
+                <cocoa key="isZoomed"/>
+            </property>
+ 
+            <!-- UnicodeChecker does not have documents
+            <property name="document" code="docu" type="document" access="r" description="The document whose contents are displayed in the window."/>-->
+ 
+            <responds-to name="close">
+                <cocoa method="handleCloseScriptCommand:"/>
+            </responds-to>
+            <responds-to name="print">
+                <cocoa method="handlePrintScriptCommand:"/>
+            </responds-to>
+            <responds-to name="save">
+                <cocoa method="handleSaveScriptCommand:"/>
+            </responds-to>
+        </class>
+ 
+    </suite>
+ 
+    <suite name="Text Suite" code="????" description="Common text classes for all applications.">
+    
+        <value-type name="RGB color" code="cRGB">
+            <cocoa class="NSColor"/>
+        </value-type>
+ 
+        <class name="rich text" plural="rich text" code="ctxt" description="Rich (styled) text.">
+            <cocoa class="NSTextStorage"/>
+            <type type="text"/>
+            <property name="color" code="colr" type="RGB color" description="The color of the text's first character.">
+                <cocoa key="foregroundColor"/>
+            </property>
+            <property name="font" code="font" type="text" description="The name of the font of the text's first character.">
+                <cocoa key="fontName"/>
+            </property>
+            <property name="size" code="ptsz" type="integer" description="The size in points of the text's first character.">
+                <cocoa key="fontSize"/>
+            </property>
+            <element type="character"/>
+            <element type="paragraph"/>
+            <element type="word"/>
+            <element type="attribute run"/>
+            <element type="attachment"/>
+        </class>
+ 
+        <class name="character" code="cha " description="One of some text's characters.">
+            <cocoa class="NSTextStorage"/>
+            <type type="text"/>
+            <property name="color" code="colr" type="RGB color" description="Its color.">
+                <cocoa key="foregroundColor"/>
+            </property>
+            <property name="font" code="font" type="text" description="The name of its font.">
+                <cocoa key="fontName"/>
+            </property>
+            <property name="size" code="ptsz" type="integer" description="Its size, in points.">
+                <cocoa key="fontSize"/>
+            </property>
+            <element type="character"/>
+            <element type="paragraph"/>
+            <element type="word"/>
+            <element type="attribute run"/>
+            <element type="attachment"/>
+        </class>
+ 
+        <class name="paragraph" code="cpar" description="One of some text's paragraphs.">
+            <cocoa class="NSTextStorage"/>
+            <type type="text"/>
+            <property name="color" code="colr" type="RGB color" description="The color of the paragraph's first character.">
+                <cocoa key="foregroundColor"/>
+            </property>
+            <property name="font" code="font" type="text" description="The name of the font of the paragraph's first character.">
+                <cocoa key="fontName"/>
+            </property>
+            <property name="size" code="ptsz" type="integer" description="The size in points of the paragraph's first character.">
+                <cocoa key="fontSize"/>
+            </property>
+            <element type="character"/>
+            <element type="paragraph"/>
+            <element type="word"/>
+            <element type="attribute run"/>
+            <element type="attachment"/>
+        </class>
+ 
+        <class name="word" code="cwor" description="One of some text's words.">
+            <cocoa class="NSTextStorage"/>
+            <type type="text"/>
+            <property name="color" code="colr" type="RGB color" description="The color of the word's first character.">
+                <cocoa key="foregroundColor"/>
+            </property>
+            <property name="font" code="font" type="text" description="The name of the font of the word's first character.">
+                <cocoa key="fontName"/>
+            </property>
+            <property name="size" code="ptsz" type="integer" description="The size in points of the word's first character.">
+                <cocoa key="fontSize"/>
+            </property>
+            <element type="character"/>
+            <element type="paragraph"/>
+            <element type="word"/>
+            <element type="attribute run"/>
+            <element type="attachment"/>
+        </class>
+ 
+        <class name="attribute run" code="catr" description="A chunk of text that all has the same attributes.">
+            <cocoa class="NSTextStorage"/>
+            <type type="text"/>
+            <property name="color" code="colr" type="RGB color" description="Its color.">
+                <cocoa key="foregroundColor"/>
+            </property>
+            <property name="font" code="font" type="text" description="The name of its font.">
+                <cocoa key="fontName"/>
+            </property>
+            <property name="size" code="ptsz" type="integer" description="Its size, in points.">
+                <cocoa key="fontSize"/>
+            </property>
+            <element type="character"/>
+            <element type="paragraph"/>
+            <element type="word"/>
+            <element type="attribute run"/>
+            <element type="attachment"/>
+        </class>
+ 
+        <class name="attachment" code="atts" inherits="rich text" description="A file embedded in text. This is just for use when embedding a file using the make command.">
+            <cocoa class="NSAttachmentTextStorage"/>
+            <property name="file name" code="atfn" type="text" description="The path to the embedded file.">
+                <cocoa key="filename"/>
+            </property>
+        </class>
+ 
+    </suite>
+    
+    
+    <!--
+        UNICODECHECKER SUITE
+        Note: We include the standard suites above. See http://developer.apple.com/mac/library/samplecode/ScriptingDefinitions/Introduction/Intro.html
+    -->
+	<suite name="UnicodeChecker Suite" code="UCkr" description="UnicodeChecker specific classes and commands.">
+		<class name="block" code="cBlk" description="A Unicode code point block.">
+			<cocoa class="UCASBlock"/>
+			<element type="code point" access="r"/>
+			<property name="name" type="text" code="pnam" access="r" description="The Unicode 'Block' property."/>
+		</class>
+		<class name="plane" code="cPln" description="A Unicode plane. Warning: It preferable to refer to planes by ID (zero-based) instead of index (1-based).">
+			<cocoa class="UCASPlane"/>
+			<element type="code point" access="r"/>
+			<property name="id" type="integer" code="ID  " access="r" description="The plane number (0-16).">
+				<cocoa key="planeID"/>
+			</property>
+		</class>
+		<class name="unihan property" plural="unihan properties" code="cUhP" description="A Unihan property tag/value pair.">
+			<cocoa class="UCASUnihanProperty"/>
+			<property name="name" type="text" code="pnam" access="r" description="The Unihan tag."/>
+			<property name="value" code="pUhV" access="r" description="The Unihan value.">
+				<type type="text"/>
+				<type type="number"/>
+			</property>
+		</class>
+		<class name="code point" code="cCdP" description="A single Unicode code point. Warnings: It is advisable to refer to code points by ID (zero-based) instead of index (1-based). 'whose' clauses are usually not a good idea for referencing code points. (See UnicodeChecker Help for details.)">
+			<cocoa class="UCASCodePoint"/>
+			<element type="unihan property" access="r"/>
+			<property name="name" type="text" code="pnam" access="r" description="The character referenced by the code point as Unicode text."/>
+			<property name="id" type="integer" code="ID  " access="r" description="The Unicode code point value.">
+				<cocoa key="codepoint"/>
+			</property>
+			<property name="assigned" type="boolean" code="pAsg" access="r" description="Is the code point assigned (designated) in the Unicode version used by UnicodeChecker. (See Chapter 2, Section 'Code Points and Characters' of The Unicode Standard.)"/>
+			<property name="assigned to abstract character" type="boolean" code="pAsC" access="r" description="Is the code point assigned to an abstract character in the Unicode version used by UnicodeChecker. (See Chapter 2, Section 'Code Points and Characters' of The Unicode Standard.)"/>
+			<property name="bidi class" type="text" code="pBCl" access="r" description="The Unicode 'Bidi Class' property."/>
+			<property name="bidi class description" type="text" code="pBCD" access="r" description="The Unicode 'Bidi Class' property (descriptive value)."/>
+			<property name="bidi mirrored" type="boolean" code="pBMi" access="r" description="The Unicode 'Bidi Mirrored' property."/>
+			<property name="canonical combining class" type="integer" code="pCCl" access="r" description="The Unicode 'Canonical Combining Class' property."/>
+			<property name="canonical combining class description" type="text" code="pCCD" access="r" description="The Unicode 'Canonical Combining Class' property (descriptive value)."/>
+			<property name="code point type" type="code point type" code="pTyp" access="r" description="The code point type. (See Chapter 2, Section 'Code Points and Characters' of The Unicode Standard.)">
+				<cocoa key="codepointType"/>
+			</property>
+			<property name="containing block" type="block" code="pBlk" access="r" description="The Unicode 'Block' property.">
+				<cocoa key="block"/>
+			</property>
+			<property name="containing plane" type="plane" code="pPln" access="r" description="The Unicode plane containing the code point.">
+				<cocoa key="plane"/>
+			</property>
+			<property name="general category" type="text" code="pGCt" access="r" description="The Unicode 'General Category' property."/>
+			<property name="general category description" type="text" code="pGCD" access="r" description="The Unicode 'General Category' property (descriptive value)."/>
+			<property name="line break" type="text" code="lBrk" access="r" description="The Unicode 'Line Break' property."/>
+			<property name="script name" type="text" code="pScp" access="r" description="The Unicode 'Script' property."/>
+			<property name="unicode name" type="text" code="pUNm" access="r" description="The Unicode name of the character.">
+				<cocoa key="characterName"/>
+			</property>
+		</class>
+		<class-extension extends="application">
+			<cocoa class="NSApplication"/>
+			<element type="code point" access="r"/>
+			<element type="block" access="r"/>
+			<element type="plane" access="r"/>
+			<property name="current code point" code="CurC" description="The unicode code point currently displayed. When setting the current code point you can either use a 'code point', a string containing the new code point or an integer specifying the decimal code point desired.">
+				<type type="code point"/>
+				<type type="number"/>
+				<type type="text"/>
+			</property>
+		</class-extension>
+		<command name="get" code="coregetd" hidden="yes" description="Get the data for an object. (Subclassed by UnicodeChecker to improve coercion support.)">
+			<cocoa class="UCGetCommand"/>
+			<direct-parameter type="specifier"/>
+			<result type="any"/>
+		</command>
+		<command name="XHTML representation of" code="UCkrXHTM" description="Convert to HTML entities (hint: use 'get (XHTML representation of myString) as string' to get pure ASCII output instead of Unicode text)">
+			<cocoa name="XHTMLForm" class="UCHTMLRepresentationScriptCommand"/>
+			<direct-parameter type="text"/>
+			<parameter name="use decimal entities" code="Deci" description="This argument specifies whether decimal or hexadecimal values should be used for XHTML entities (defaults to hexadecimal)" type="boolean" optional="yes">
+				<cocoa key="decimal"/>
+			</parameter>
+			<parameter name="named entities" code="NmdE" description="This argument specifies whether named XHTML entities should be used when available for a code point (defaults to use named entities)" type="boolean" optional="yes">
+				<cocoa key="named"/>
+			</parameter>
+			<parameter name="converting low ASCII" code="Low " description="This argument specifies whether low ASCII characters should be converted as well (defaults to NO)" type="boolean" optional="yes">
+				<cocoa key="LowASCII"/>
+			</parameter>
+			<result type="text"/>
+		</command>
+		<command name="unescaped representation of" code="UCkrRePE" description="(DEPRECATED: use 'unescape STRING from URL' instead!) Replaces UTF8 percent escape codes with the encoded Unicode character">
+			<cocoa name="ReplacePercentEscapes" class="UCReplacePercentEscapesScriptCommand"/>
+			<direct-parameter type="text"/>
+			<result type="text"/>
+		</command>
+		<command name="IDNA representation of" code="UCkrtIDN" description="Convert from Unicode to IDNA. Returns 'missing value' constant on failure.">
+			<cocoa name="ToIDNA" class="UCToIDNAScriptCommand"/>
+			<direct-parameter type="text"/>
+			<result type="text"/>
+			<parameter name="using" code="usng" type="IDNA protocol" optional="yes" description="the IDNA protocol version for the conversion (if not specified, the 2008 IDNA protocol is used)">
+				<cocoa key="using"/>
+			</parameter>
+		</command>
+		<command name="find" code="UCkrFind" description="Opens UnicodeChecker's find panel and enters a search string">
+			<cocoa name="FindCodepoint" class="UCFindCodepointScriptCommand"/>
+			<parameter name="codepoint" code="CdPt" description="Unicode entity substring to search for" type="text">
+				<cocoa key="codepoint"/>
+			</parameter>
+			<parameter name="including unihan definitions" code="PUhn" description="Include Unihan definition in search. By default, the current user choice for unihan definition inclusion is honored. (The current user choice is modified by specifying this parameter.)" type="boolean" optional="yes">
+				<cocoa key="unihan"/>
+			</parameter>
+		</command>
+		<command name="display character" code="UCkrdspC" description="(DEPRECATED: use 'set current code point to' instead!) Make UnicodeChecker display information on the character supplied as parameter in the main window. The first character of the supplied string will be used.">
+			<cocoa name="DisplayCharacter" class="UCDisplayCharacterScriptCommand"/>
+			<direct-parameter type="text"/>
+		</command>
+		<command name="deXHTMLized representation of" code="UCkrDeHT" description="Convert HTML entities to Unicode">
+			<cocoa name="DeXHTML" class="UCConvertHTMLToUnicodeScriptCommand"/>
+			<direct-parameter type="text"/>
+			<parameter name="converting low ASCII entities" code="Low " description="This argument specifies whether low ASCII XHTML entities should be converted as well (defaults to YES)" type="boolean" optional="yes">
+				<cocoa key="LowASCII"/>
+			</parameter>
+			<result type="text"/>
+		</command>
+		<command name="escaped representation of" code="UCkrAdPE" description="(DEPRECATED: use 'escape STRING to URL' instead!) Replaces characters not allowed in URLs with their UTF8 percent escape codes">
+			<cocoa name="AddPercentEscapes" class="UCAddPercentEscapesScriptCommand"/>
+			<direct-parameter type="text"/>
+			<result type="text"/>
+		</command>
+		<command name="deIDNAized representation of" code="UCkrfIDN" description="Convert from IDNA to Unicode. Returns 'missing value' constant on failure.">
+			<cocoa name="FromIDNA" class="UCFromIDNAScriptCommand"/>
+			<direct-parameter type="text"/>
+			<result type="text"/>
+			<parameter name="using" code="usng" type="IDNA protocol" optional="yes" description="the IDNA protocol version for the conversion (if not specified, the 2008 IDNA protocol is used)">
+				<cocoa key="using"/>
+			</parameter>
+		</command>
+		<enumeration name="IDNA protocol" code="IDNp">
+			<enumerator name="IDNA 2008" code="2008" description="IDNA 2008 (RFC 5890-5894)"/>
+			<enumerator name="IDNA 2003" code="2003" description="IDNA 2003 (RFC 3490)"/>
+		</enumeration>
+		<enumeration name="code point type" code="cTyp">
+			<enumerator name="Graphic" code="grpc" description="Letter, mark, number, punctuation, symbol, and spaces"/>
+			<enumerator name="Format" code="frmt" description="Invisible but affects neighboring characters; includes line/paragraph separators"/>
+			<enumerator name="Control" code="ctrl" description="Usage defined by protocols or standards outside the Unicode Standard"/>
+			<enumerator name="Private Use" code="prvu" description="Usage defined by private agreement outside the Unicode Standard"/>
+			<enumerator name="Surrogate" code="surr" description="Permanently reserved for UTF-16; restricted interchange"/>
+			<enumerator name="Noncharacter" code="nonc" description="Permanently reserved for internal usage; restricted interchange"/>
+			<enumerator name="Reserved" code="rsvd" description="Reserved for future assignment; restricted interchange"/>
+		</enumeration>
+		<enumeration name="string escape" code="stEs">
+			<enumerator name="CSS 2.1" code="CS21" description="CSS 2.1 escapes"/>
+			<enumerator name="CSS 2" code="CS2 " description="CSS 2 escapes"/>
+			<enumerator name="CSS 1" code="CS1 " description="CSS 1 escapes"/>
+			<enumerator name="C99" code="C99 " description="C99 escapes"/>
+			<enumerator name="Java" code="Java" description="Java escapes"/>
+			<enumerator name="URL" code="URL " description="URL percent escapes (e.g. '%20' for ' ') using UTF-8 encoding"/>
+			<enumerator name="octal C" code="COct" description="Octal C escapes using UTF-8 encoding"/>
+		</enumeration>
+		<command name="escape" code="UCkrEsc " description="Escape string using the specified escape format">
+			<cocoa class="UCEscapeScriptCommand"/>
+			<direct-parameter type="text"/>
+			<parameter name="to" code="to  " type="string escape" optional="no" description="the format the string should be escaped to">
+				<cocoa key="to"/>
+			</parameter>
+			<parameter name="preserving" code="prsv" type="text" optional="yes" description="a string containing characters that should not be escaped in addition to the default set of characters for the respective format (see UnicodeChecker help for default sets)">
+				<cocoa key="preserving"/>
+			</parameter>
+			<parameter name="preserving default set" code="psvd" type="boolean" optional="yes" description="whether the characters from the default set for the respective format should be preserved (defaults to True, see UnicodeChecker help for default sets)">
+				<cocoa key="preservingDefaultSet"/>
+			</parameter>
+			<result type="text"/>
+		</command>
+		<command name="unescape" code="UCkrUEsc" description="Unescape string using the specified escape format">
+			<cocoa class="UCUnescapeScriptCommand"/>
+			<direct-parameter type="text"/>
+			<parameter name="from" code="from" type="string escape" optional="no" description="the format the string should be unescaped from">
+				<cocoa key="from"/>
+			</parameter>
+			<result type="text"/>
+		</command>
+	</suite>
+</dictionary>

@@ -1,0 +1,25 @@
+Montoro,Adela,Leganés
+Ramos,Faustino,Seville
+Moya,Artemio,San Cristóbal de La Laguna
+Román,Olga,Burgos
+Gómez,Fernando,Vitoria-Gasteiz
+Vargas,Pedro,Fuenlabrada
+Ortiz,Columbano,Terrassa
+Méndez,Gisela,Málaga
+Pérez,Abel,Zaragoza
+García,Agustín,Logroño
+Durán,Adalberto,Albacete
+Soler,Marcial,Santa Cruz de Tenerife
+Velasco,Natalia,Alicante
+Gallardo,Leandro,Getafe
+Domínguez,Faustino,Málaga
+Vargas,Conrado,A Coruña
+Lozano,Mar,Albacete
+Durán,Octavio,Alicante
+Campos,Antonia,Getafe
+Campos,Baldomero,Granada
+Prieto,Faustino,Badajoz
+Pascual,Amadeo,L'Hospitalet de Llobregat
+Guerrero,Rita,Santander
+Vázquez,Acacio,Jerez de la Frontera
+Jiménez,Remedios,Castellón de la Plana
